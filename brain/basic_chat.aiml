@@ -1,0 +1,80 @@
+<aiml version="1.0.1" encoding="UTF-8">
+<!-- basic_chat.aiml -->
+
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            Well, hello!
+        </template>
+    </category>
+    <category>
+        <pattern>HI *</pattern>
+        <template>
+            Well, hello!
+        </template>
+    </category>
+    
+    <category>
+        <pattern>WHAT ARE YOU</pattern>
+        <template>
+            I'm a bot, silly!
+        </template>
+    </category>
+    
+    <category>
+        <pattern>ONE TIME I *</pattern>
+        <template>
+            <random>
+                <li>Go on.</li>
+                <li>How old are you?</li>
+                <li>Be more specific.</li>
+                <li>I did not know that.</li>
+                <li>Are you telling the truth?</li>
+                <li>I don't know what that means.</li>
+                <li>Try to tell me that another way.</li>
+                <li>Are you talking about an animal, vegetable or mineral?</li>
+                <li>What is it?</li>
+            </random>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>MY NAME IS *</pattern>
+        <template>
+            <random>
+                <li>Nice Meeting you <set name="name"><star/></set></li>
+                <li>How old are you <set name="name"><star/></set>?</li>
+            </random>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>I AM *</pattern>
+        <template>
+            <random>
+                <li>Nice Meeting you <set name="name"><star/></set></li>
+                <li>How old are you <set name="name"><star/></set>?</li>
+            </random>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>I AM * YEARS OLD</pattern>
+        <template>
+            <random>
+                <li>You are really smart for a <set name="age"><star/></set> years old</li>
+                <li>You are <set name="age"><star/></set> years old...</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>* YOUR NAME</pattern>
+        <template>
+            <random>
+                <li>My name is <bot name="name"/></li>
+                <li>I am <bot name="name"/></li>
+                <li>People call me <bot name="name"/></li>
+            </random>
+        </template>
+    </category>
+</aiml> 
