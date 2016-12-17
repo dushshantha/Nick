@@ -3,6 +3,8 @@ import wave
 import speech_recognition as sr
 import os
 
+import settings
+
 from  AppKit import NSSpeechSynthesizer
 import time
 import sys
@@ -89,7 +91,7 @@ def speak(sentense):
             #"com.apple.speech.synthesis.voice.Victoria",
             #"com.apple.speech.synthesis.voice.Zarvox" ]
 
-    voice = "com.apple.speech.synthesis.voice.Alex"
+    voice = "com.apple.speech.synthesis.voice.Victoria"
     ve.setVoice_(voice)
     ve.startSpeakingString_(sentense)
     while ve.isSpeaking():
@@ -97,13 +99,13 @@ def speak(sentense):
     
 
 kernel = aiml.Kernel()
-
-kernel.setBotPredicate("name","Nick")
-kernel.learn("std-startup.xml")
+settings.init('config/profile.yaml', kernel)
+kernel.learn("alice/std-startup.xml")
 kernel.respond("LOAD AIML B")
 
 while True:
-    print kernel.respond(raw_input("Enter your Message: " ))
+    resp = kernel.respond(raw_input("Enter your Message: " ))
+    speak(resp)
     #response = listenAudio()
     #if response != '':
         #speak(kernel.respond(response))
